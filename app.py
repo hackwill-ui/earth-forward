@@ -447,7 +447,7 @@ def recycling():
 
         # ---------------- SEARCH OPENSTREETMAP ----------------
 
-        overpass_url = "https://overpass-api.de/api/interpreter"
+       overpass_url = "https://overpass.private.coffee/api/interpreter"
 
         query = f"""
         [out:json][timeout:30];
