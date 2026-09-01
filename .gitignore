@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+earth_forward.db
+.DS_Store
+venv/
+.venv/

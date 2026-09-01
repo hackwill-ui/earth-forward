@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Earth Forward</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- 🌍 EARTH FORWARD MAP START -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+    <!-- 🌍 EARTH FORWARD MAP END -->
+
+</head>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Earth Forward</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            🌍 EARTH FORWARD
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <!-- Left side -->
+            <div class="hero-text">
+
+                <div class="tag">
+                    ♻️ SMARTER WASTE • GREENER FUTURE
+                </div>
+
+                <h1>
+                    Give Your Waste
+                    <span>A Better Future.</span>
+                </h1>
+
+                <p>
+                    Not sure what to do with your waste?
+                    Let AI help you find the smarter,
+                    greener way to dispose of it.
+                </p>
+
+            </div>
+
+
+            <!-- Right side -->
+            <div class="analyzer-card">
+
+                <h2>
+                    ♻️ Analyze Your Waste
+                </h2>
+
+                <p class="card-description">
+                    Type the item you want to dispose of.
+                </p>
+
+                <textarea
+                    id="itemInput"
+                    placeholder="Example: plastic bottle, old battery, food waste..."
+                ></textarea>
+
+                <!-- 📷 PHOTO UPLOAD START -->
+
+                <div class="photo-upload">
+
+                    <input
+                        type="file"
+                        id="wasteImage"
+                        accept="image/*"
+                        capture="environment"
+                        hidden
+                    >
+
+                    <button
+                        type="button"
+                        class="photo-button"
+                        onclick="document.getElementById('wasteImage').click()"
+                    >
+                        📷 Upload / Take Photo
+                    </button>
+
+                    <p id="photoName"></p>
+                    
+                    <div id="aiDetectedBox" class="ai-detected-box" style="display: none;">
+
+                        <span>🤖 AI detected:</span>
+
+                        <strong id="aiDetectedItem"></strong>
+
+                        <span class="ai-edit-hint">
+                            You can edit it if needed.
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- 📷 PHOTO UPLOAD END -->
+
+                <button onclick="analyzeItem()">
+                    🤖 Analyze Item
+                </button>
+
+                <p id="loading"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Results -->
+        <section class="results" id="resultSection">
+
+            <h2>Your Eco Analysis</h2>
+
+         <!-- 🔒 CARDS SECTION START -->
+
+<div class="cards">
+
+    <!-- DISPOSAL CARD -->
+    <div class="card">
+
+        <div class="icon">♻️</div>
+
+        <h3>Disposal</h3>
+
+        <p id="disposal">
+            Your disposal instructions will appear here.
+        </p>
+
+    </div>
+
+
+    <!-- ENVIRONMENTAL IMPACT CARD -->
+    <div class="card">
+
+        <div class="icon">🌱</div>
+
+        <h3>Environmental Impact</h3>
+
+        <p id="impact">
+            Environmental impact will appear here.
+        </p>
+
+    </div>
+
+
+    <!-- AI ECO TIP CARD -->
+    <div class="card">
+
+        <div class="icon">🤖</div>
+
+        <h3>AI Eco Tip</h3>
+
+        <p id="ecoTip">
+            Your personalized eco tip will appear here.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- 🔒 CARDS SECTION END -->
+
+
+<!-- 🌱 ECO SCORE SECTION START -->
+
+<section class="eco-score-section">
+
+    <div class="card eco-score-card">
+
+        <div class="eco-score-heading">
+
+            <div class="eco-score-title">
+                🌱 Eco Score
+            </div>
+
+            <button
+                type="button"
+                class="eco-info-button"
+                onclick="showEcoInfo()"
+                title="How is Eco Score calculated?"
+            >
+                ⓘ
+            </button>
+
+        </div>
+
+        <div class="eco-score-value">
+            <span id="ecoScore">--</span>
+            <span class="eco-score-total">/100</span>
+        </div>
+
+        <p id="ecoLevel">
+            Analyze an item to see its Eco Score.
+        </p>
+
+        <div class="eco-progress">
+            <div id="ecoProgress"></div>
+        </div>
+
+        <div id="ecoInfo" class="eco-info-box">
+
+            <strong>How is my Eco Score calculated?</strong>
+
+            <p>
+                Your score is based on four environmental factors:
+            </p>
+
+            <ul>
+                <li>♻️ Recyclability — 30%</li>
+                <li>🌱 Compostability — 25%</li>
+                <li>🌍 Environmental risk — 25%</li>
+                <li>🗑️ Disposal difficulty — 10%</li>
+                <li>⚠️ Special handling — 10%</li>
+            </ul>
+            
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 🌱 ECO SCORE SECTION END -->
+
+</section>
+<!-- 🔒 RESULTS SECTION END -->
+
+
+<!-- RECYCLING LOCATIONS -->
+
+<section class="locations">
+
+    <div class="location-header">
+
+        <div>
+            <div class="tag">
+                📍 FIND RECYCLING OPTIONS
+            </div>
+
+            <h2>
+                Recycling Near You
+            </h2>
+
+            <p>
+                Find recycling and waste collection options
+                near your location.
+            </p>
+        </div>
+
+        <button class="location-button"
+                onclick="findRecycling()">
+            📍 Find Near Me
+        </button>
+
+    </div>
+
+
+    <div id="locationStatus" class="location-status">
+         Click "Find Near Me" to search for recycling options.
+    </div>
+
+
+        <div class="manual-location">
+
+    <p>Automatic location not working?</p>
+
+    <div class="location-input-row">
+
+        <input
+            type="text"
+            id="manualLocation"
+            placeholder="Enter city or area"
+        >
+
+        <button
+            class="location-button"
+            onclick="findManualLocation()"
+        >
+            🔍 Find Recycling
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- 🗺️ MAP -->
+<div id="map" class="map-placeholder">
+
+    <div>
+        <div class="map-icon">🗺️</div>
+
+        <h3>
+            Recycling Map
+        </h3>
+
+        <p>
+            Your nearby recycling locations will appear here.
+        </p>
+    </div>
+
+</div>
+
+<div
+    id="availableLocationsHeading"
+    class="available-locations-heading"
+>
+    <span>♻️ Available Recycling Locations</span>
+</div>
+
+<div id="recyclingResults" class="recycling-results"></div>
+</section>
+<!-- ⚙️ HOW IT WORKS START -->
+
+<section class="info-section" id="how-it-works">
+
+    <div class="info-header">
+
+        <div class="tag">
+            ⚙️ HOW IT WORKS
+        </div>
+
+        <h2>
+            From Waste to Better Decisions
+        </h2>
+
+        <p>
+            Earth Forward uses AI to help you understand
+            your waste and choose a smarter way to handle it.
+        </p>
+
+    </div>
+
+    <div class="how-it-works-grid">
+
+        <div class="info-step">
+
+            <div class="info-step-icon">
+                ✍️
+            </div>
+
+            <h3>
+                1. Enter Your Waste
+            </h3>
+
+            <p>
+                Type the name of the waste item you want
+                to analyze.
+            </p>
+
+        </div>
+
+
+        <div class="info-step">
+
+            <div class="info-step-icon">
+                📷
+            </div>
+
+            <h3>
+                2. Or Upload a Photo
+            </h3>
+
+            <p>
+                Take or upload a picture and let AI
+                identify the waste for you.
+            </p>
+
+        </div>
+
+
+        <div class="info-step">
+
+            <div class="info-step-icon">
+                🤖
+            </div>
+
+            <h3>
+                3. AI Analyzes It
+            </h3>
+
+            <p>
+                AI evaluates the item and provides
+                environmental information.
+            </p>
+
+        </div>
+
+
+        <div class="info-step">
+
+            <div class="info-step-icon">
+                🌱
+            </div>
+
+            <h3>
+                4. Get Your Eco Score
+            </h3>
+
+            <p>
+                See your Eco Score along with disposal
+                guidance and a personalized eco tip.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ⚙️ HOW IT WORKS END -->
+
+<!-- 🌍 ABOUT SECTION START -->
+
+<section class="about-section" id="about">
+
+    <div class="about-header">
+
+        <div class="tag">
+            🌍 ABOUT EARTH FORWARD
+        </div>
+
+        <h2>
+            Making Waste Decisions Simpler
+        </h2>
+
+        <p>
+            Earth Forward is an AI-powered waste analysis tool
+            designed to help people understand what their waste
+            means for the environment and what they can do with it.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🤖
+            </div>
+
+            <h3>AI-Powered Analysis</h3>
+
+            <p>
+                Earth Forward analyzes waste items and provides
+                information about disposal, environmental impact,
+                and practical eco-friendly actions.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🌱
+            </div>
+
+            <h3>Understand Your Eco Score</h3>
+
+            <p>
+                Every analyzed item receives an Eco Score based
+                on recyclability, compostability/biodegradibility, environmental
+                risk, disposal difficulty, and special handling.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                ♻️
+            </div>
+
+            <h3>Find Better Disposal Options</h3>
+
+            <p>
+                Earth Forward can help you find nearby recycling
+                and waste facilities so you can make more informed
+                disposal decisions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-goal">
+
+        <div class="about-goal-icon">
+            🌎
+        </div>
+
+        <div>
+            <h3>Our Goal</h3>
+
+            <p>
+                Make responsible waste disposal easier to understand,
+                easier to access, and easier to act on.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- 🌍 ABOUT SECTION END -->
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>

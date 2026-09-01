@@ -1,0 +1,927 @@
+html {
+    scroll-behavior: smooth;
+}* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f8f3;
+    color: #183b24;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    background: white;
+
+    border-bottom: 1px solid #e5eee7;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+nav a {
+    text-decoration: none;
+
+    color: #183b24;
+
+    margin-left: 30px;
+
+    font-size: 15px;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 80px 8%;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.tag {
+    display: inline-block;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+
+    color: #238b45;
+}
+
+h1 {
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+h1 span {
+    display: block;
+
+    color: #238b45;
+}
+
+.hero-text p {
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color: #52705b;
+}
+
+
+/* ANALYZER */
+
+.analyzer-card {
+    width: 430px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.analyzer-card h2 {
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.card-description {
+    color: #718078;
+
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+
+    height: 130px;
+
+    padding: 15px;
+
+    resize: none;
+
+    border: 2px solid #dce9df;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #238b45;
+}
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #238b45;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #176b34;
+}
+
+
+/* RESULTS */
+
+.results {
+    padding: 70px 8%;
+
+    background: white;
+
+    text-align: center;
+}
+
+.results > h2 {
+    font-size: 35px;
+}
+
+.cards {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.card {
+    flex: 1;
+
+    padding: 30px;
+
+    background: #f5faf6;
+
+    border-radius: 18px;
+
+    text-align: left;
+}
+
+.icon {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+
+    font-size: 20px;
+}
+
+.card p {
+    color: #607368;
+
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        padding: 50px 5%;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .analyzer-card {
+        width: 100%;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+}
+.locations {
+    padding: 80px 8%;
+    background: #f1f8f3;
+}
+
+.location-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.location-header h2 {
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.location-header p {
+    color: #607368;
+    font-size: 17px;
+}
+
+.location-button {
+    width: auto;
+    padding: 14px 25px;
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.location-status {
+    margin-top: 30px;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 12px;
+    color: #52705b;
+}
+
+.map-placeholder {
+    height: 400px;
+    margin-top: 20px;
+
+    border-radius: 20px;
+
+    background: #dfeee2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.map-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.map-placeholder h3 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.map-placeholder p {
+    color: #607368;
+}
+
+
+@media (max-width: 800px) {
+
+    .location-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .location-button {
+        width: 100%;
+    }
+}
+.manual-location {
+    margin-top: 20px;
+}
+
+.manual-location p {
+    margin-bottom: 10px;
+    color: #607368;
+}
+
+.location-input-row {
+    display: flex;
+    gap: 12px;
+}
+
+.location-input-row input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid #d0ddd4;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+
+    .location-input-row {
+        flex-direction: column;
+    }
+
+    .location-input-row button {
+        width: 100%;
+    }
+}
+.recycling-card {
+    display: flex;
+    gap: 18px;
+
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.recycling-icon {
+    font-size: 35px;
+}
+
+.recycling-card h3 {
+    margin: 0 0 8px;
+}
+
+.recycling-card p {
+    color: #607368;
+    margin: 0 0 10px;
+}
+
+.recycling-card a {
+    text-decoration: none;
+    font-weight: 600;
+}
+/* 🌍 Interactive Recycling Map */
+
+#map {
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+/* 🔒 ECO SCORE FINAL START */
+
+.eco-score-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.eco-score-card {
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    position: relative;
+}
+
+.eco-score-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 32px;
+}
+
+.eco-score-title {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* ⓘ ECO SCORE INFO BUTTON */
+
+.eco-info-button {
+    position: absolute !important;
+    right: 8px !important;
+    top: 0 !important;
+
+    width: 32px !important;
+    height: 32px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: none !important;
+    border-radius: 50% !important;
+
+    background: transparent !important;
+
+    color: inherit !important;
+
+    font-size: 20px !important;
+    line-height: 32px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    cursor: pointer !important;
+    z-index: 10 !important;
+}
+
+.eco-info-button:hover {
+    background: rgba(34, 139, 70, 0.10) !important;
+}
+
+/* SCORE */
+
+.eco-score-value {
+    margin-top: 15px;
+    font-size: 46px;
+    font-weight: 700;
+}
+
+.eco-score-total {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* PROGRESS BAR */
+
+.eco-progress {
+    width: 100%;
+    height: 12px;
+
+    background: #e5eee7;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    margin-top: 15px;
+}
+
+#ecoProgress {
+    width: 0%;
+    height: 100%;
+
+    background: #239447;
+
+    border-radius: 20px;
+
+    transition: width 0.8s ease;
+}
+
+/* INFO EXPLANATION */
+
+.eco-info-box {
+    display: none;
+
+    margin-top: 15px;
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #f1f8f3;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+.eco-info-box.show {
+    display: block;
+}
+
+.eco-info-box ul {
+    margin: 8px 0 0;
+    padding-left: 20px;
+}
+
+/* 🔒 ECO SCORE FINAL END */
+/* ♻️ RECYCLING LOCATION CARDS */
+
+.recycling-card {
+    display: flex;
+    flex-direction: column;
+
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+
+    box-sizing: border-box;
+    padding: 18px;
+
+    margin: 0;
+
+    background: white;
+    border-radius: 14px;
+
+    position: relative;
+    z-index: 1001;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.recycling-card a {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 12px;
+
+    position: relative;
+    z-index: 1002;
+
+    pointer-events: auto;
+
+    color: #087f5b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.recycling-card a:hover {
+    text-decoration: underline;
+}
+/* ♻️ RECYCLING RESULTS HORIZONTAL ROW */
+
+.recycling-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 15px;
+
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 5px 15px;
+
+    box-sizing: border-box;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.recycling-results .recycling-card {
+    flex: 0 0 280px;
+    width: 280px;
+}
+/* ♻️ AVAILABLE LOCATIONS HEADING */
+
+.available-locations-heading {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 28px;
+    margin-bottom: 5px;
+
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.available-locations-heading::after {
+    content: "";
+    width: 100%;
+    max-width: 180px;
+    height: 1px;
+    background: #d5e5d9;
+    margin-left: 15px;
+}
+
+.available-locations-heading::before {
+    content: "";
+    width: 100%;
+    max-width: 180px;
+    height: 1px;
+    background: #d5e5d9;
+    margin-right: 15px;
+}
+/* ⚙️ HOW IT WORKS */
+
+.info-section {
+    width: 100%;
+    margin-top: 90px;
+    padding: 70px 20px;
+    box-sizing: border-box;
+}
+
+.info-header {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.info-header h2 {
+    font-size: 34px;
+    margin: 15px 0;
+}
+
+.info-header p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.how-it-works-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.info-step {
+    padding: 28px 22px;
+    text-align: center;
+
+    background: white;
+    border-radius: 18px;
+
+    box-sizing: border-box;
+}
+
+.info-step-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.info-step h3 {
+    margin: 10px 0;
+    font-size: 19px;
+}
+
+.info-step p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .how-it-works-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .how-it-works-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ⚙️ HOW IT WORKS */
+
+.info-section {
+    width: 100%;
+    margin-top: 90px;
+    padding: 70px 20px;
+    box-sizing: border-box;
+}
+
+.info-header {
+    max-width: 750px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.info-header h2 {
+    font-size: 34px;
+    margin: 15px 0;
+}
+
+.info-header p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.how-it-works-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.info-step {
+    padding: 28px 22px;
+    text-align: center;
+
+    background: white;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+.info-step-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.info-step h3 {
+    margin: 10px 0;
+    font-size: 19px;
+}
+
+.info-step p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* 📱 Mobile */
+
+@media (max-width: 800px) {
+
+    .how-it-works-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .how-it-works-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* 🌍 ABOUT SECTION */
+
+.about-section {
+    width: 100%;
+    padding: 80px 20px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+.about-header {
+    max-width: 780px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.about-header h2 {
+    font-size: 34px;
+    margin: 15px 0;
+}
+
+.about-header p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.about-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.about-card {
+    padding: 30px 24px;
+    text-align: center;
+
+    background: white;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+.about-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.about-card p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.about-goal {
+    max-width: 900px;
+    margin: 45px auto 0;
+    padding: 25px 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: #f1f8f3;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+.about-goal-icon {
+    font-size: 42px;
+}
+
+.about-goal h3 {
+    margin: 0 0 8px;
+    font-size: 21px;
+}
+
+.about-goal p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* 📱 ABOUT — MOBILE */
+
+@media (max-width: 800px) {
+
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-goal {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+/* 🤖 AI DETECTED ITEM */
+
+.ai-detected-box {
+    margin-top: 12px;
+    padding: 12px 16px;
+
+    background: #f1f8f3;
+    border: 1px solid #d5e8da;
+    border-radius: 12px;
+
+    text-align: center;
+    font-size: 14px;
+}
+
+.ai-detected-box strong {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.ai-edit-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    opacity: 0.7;
+}
