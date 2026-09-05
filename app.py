@@ -161,7 +161,12 @@ Do not invent nearby recycling locations.
 
         response = client.models.generate_content(
             model="gemini-3.5-flash-lite",
-            contents=prompt
+            contents=prompt,
+            config={
+                "thinking_config": {
+                    "thinking_level": "minimal"
+                }
+            }
         )
 
         answer = response.text
